@@ -1,4 +1,5 @@
 import React from 'react';
+import LoginForm from './LoginForm';
 import logo from './logo.svg';
 import './App.css';
 
@@ -10,6 +11,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <LoginForm />
         <a
           className="App-link"
           href="https://reactjs.org"
