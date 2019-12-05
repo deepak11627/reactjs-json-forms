@@ -3,6 +3,11 @@ import React from 'react';
 
 const withLabel = (ElementComponent) => {
   return class ElementWithLabel extends React.Component {
+    validate() {
+      console.log("Validate")
+    }
+
+
     render() {
       const attribs = this.props.attribs
       return (

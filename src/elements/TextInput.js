@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import GenericInput from './GenericInput';
 import NotEmptyValidator from './../validators/NotEmpty'
 
-class TextInput extends Component {
+class TextInput extends GenericInput {
     constructor(props) {
         super(props);
         this.state = { value: props.value, class: props.className, validators: [] }

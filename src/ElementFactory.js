@@ -8,6 +8,7 @@ import PasswordInput from './elements/PasswordInput';
 
 
 class ElementFactory extends Component {
+
   render() {
     const components = {
       text: TextInput,
@@ -20,4 +21,4 @@ class ElementFactory extends Component {
   }
 }
 
-export default withValidators(withLabel(ElementFactory));
+export default withLabel(ElementFactory);

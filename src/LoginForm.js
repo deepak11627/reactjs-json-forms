@@ -17,9 +17,10 @@ class LoginForm extends Component {
     e.preventDefault()
 
     let errors = [];
+
     //    check all the required fields in the form
     this.state.elements.forEach(element => {
-      console.log(element.props.attribs)
+      console.log("attribs are", element)
       const msg = element.validate()
       if (msg) {
         errors.push(msg)
