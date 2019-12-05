@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-//import Input from '../Input';
+import NotEmptyValidator from './../validators/NotEmpty'
 
 class TextInput extends Component {
     constructor(props) {
         super(props);
-        this.state = { value: props.value, class: props.className }
+        this.state = { value: props.value, class: props.className, validators: [] }
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -13,11 +13,20 @@ class TextInput extends Component {
         this.setState({ value: value })
     }
 
+    validate() {
+        console.log("Validate")
+        let v = new NotEmptyValidator();
+        if (!v.isValid(this.state.value)) {
+            return this.props.errMessage
+        }
+        return null
+    }
+
     render() {
-        const { name } = this.props.attribs
+        const { name, placeholder, type } = this.props.attribs
         return (
             <div>
-                <input type="text" name={name} onChange={e => this.handleChange(e.target.value)} value={this.state.value} className={this.state.class} />
+                <input type={type} name={name} onChange={e => this.handleChange(e.target.value)} value={this.state.value} className={this.state.class} placeholder={placeholder} />
             </div>
         );
     }

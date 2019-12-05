@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-//import Input from '../Input';
+import React from 'react';
+import GenericInput from './GenericInput';
 
-class SubmitInput extends Component {
+class SubmitInput extends GenericInput {
     constructor(props) {
         super(props);
         this.state = { value: props.value, class: props.className }

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-//import Input from '../Input';
+import React from 'react';
+import GenericInput from './GenericInput';
 
-class PasswordInput extends Component {
+class PasswordInput extends GenericInput {
     constructor(props) {
         super(props);
         this.state = { value: props.value, class: props.class }
@@ -14,9 +14,10 @@ class PasswordInput extends Component {
     }
 
     render() {
+        const { name, placeholder, type } = this.props.attribs
         return (
             <div>
-                <input type="password" name={this.props.name} onChange={e => this.handleChange(e.target.value)} value={this.state.value} />
+                <input type={type} name={name} onChange={e => this.handleChange(e.target.value)} value={this.state.value} className={this.state.class} placeholder={placeholder} />
             </div>
         );
     }
