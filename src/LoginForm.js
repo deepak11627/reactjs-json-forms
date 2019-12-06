@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ElementFactory from './ElementFactory'
 import FormErrors from './FormErrors'
+import NotEmptyValidator from './validators/NotEmpty'
+
 
 class LoginForm extends Component {
 
@@ -17,17 +19,15 @@ class LoginForm extends Component {
     e.preventDefault()
 
     let errors = [];
-
     //    check all the required fields in the form
     this.state.elements.forEach(element => {
-      console.log("attribs are", element)
-      const msg = element.validate()
-      if (msg) {
-        errors.push(msg)
+      console.log(element)
+      let validator = new NotEmptyValidator();
+      if (!validator.isValid(element.state.value)) {
+        errors.push(validator.getMessage())
       }
     })
     this.setState({ errors: errors })
-    //this.refs.username.validate()
   }
 
   componentDidMount() {

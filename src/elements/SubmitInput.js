@@ -1,7 +1,6 @@
 import React from 'react';
-import GenericInput from './GenericInput';
 
-class SubmitInput extends GenericInput {
+class SubmitInput extends React.Component {
     constructor(props) {
         super(props);
         this.state = { value: props.value, class: props.className }
